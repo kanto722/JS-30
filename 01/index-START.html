@@ -66,19 +66,25 @@
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
-    key.classList.add('playing');
+    key.classList.toggle('playing');
   }
 
 function removeTransition(e) {
-  if (e.propertyName !== 'transform') return;
   
+  if (e.propertyName != 'transform') return;
+
   this.classList.remove('playing');
-  console.log(this);
+
 
 }
 
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+keys.forEach(key => key.addEventListener('click', (e) => {
+
+  
+}));
+
 window.addEventListener('keydown', playSound);
 
 
