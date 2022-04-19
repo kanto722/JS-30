@@ -6,7 +6,11 @@ function playSound(e) {
     audio.currentTime = 0;
     audio.play();
     key.classList.toggle('playing');
+    setTimeout(() => {
+        key.classList.remove('playing');
+    }, 300)
   }
+<<<<<<< HEAD
 
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
@@ -15,9 +19,7 @@ function removeTransition(e) {
 
 }
 
+=======
+>>>>>>> e640b6ab7ae88a12f7059fea08d7fcb69ebb7a01
 const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 window.addEventListener('keydown', playSound);
-window.addEventListener('keyup', removeTransition);
-
-
